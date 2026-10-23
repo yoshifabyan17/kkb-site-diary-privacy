@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T11:26:08Z",
+  "title": "Design System: KKB Site Diary privacy pages",
+  "extensions": {
+    "colorMeta": {
+      "page": { "role": "neutral", "displayName": "White" },
+      "text": { "role": "neutral", "displayName": "Dark text" },
+      "link": { "role": "primary", "displayName": "Link blue" },
+      "link-hover": { "role": "primary", "displayName": "Dark link blue" },
+      "divider": { "role": "neutral", "displayName": "Grey divider" },
+      "selection": { "role": "neutral", "displayName": "Light blue selection" },
+      "warning-border": { "displayName": "Brown warning border" },
+      "warning-background": { "displayName": "Pale yellow warning" },
+      "warning-text": { "displayName": "Dark brown warning text" },
+      "muted-text": { "role": "neutral", "displayName": "Muted text" }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Main heading", "purpose": "Page title." },
+      "title": { "displayName": "Section heading", "purpose": "Sections of the notice and deletion instructions." },
+      "body": { "displayName": "Body", "purpose": "Reading text and links." },
+      "organisation": { "displayName": "Organisation", "purpose": "KKB name in the header." },
+      "review": { "displayName": "Review note", "purpose": "Open checks within the draft notice." },
+      "metadata": { "displayName": "Metadata", "purpose": "Update date and footer." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [{ "name": "narrow", "value": "420px" }]
+  },
+  "components": [
+    {
+      "name": "Text link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Underlined link with hover and keyboard focus styles.",
+      "html": "<a class=\"ds-link\" href=\"#privacy\">Privacy notice</a>",
+      "css": ".ds-link { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.0625rem; line-height: 1.7; color: #064f91; text-underline-offset: .2em; overflow-wrap: anywhere; } .ds-link:hover { color: #12344f; text-decoration-thickness: .15em; } .ds-link:focus-visible { outline: 3px solid #064f91; outline-offset: 4px; } @media (max-width: 420px) { .ds-link { font-size: 1rem; } }"
+    },
+    {
+      "name": "Page navigation",
+      "kind": "nav",
+      "description": "The two privacy-page links wrap when needed.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Privacy pages\"><a href=\"#privacy\" aria-current=\"page\">Privacy notice</a><a href=\"#deletion\">Deletion instructions</a></nav>",
+      "css": ".ds-nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.0625rem; line-height: 1.7; } .ds-nav a { color: #064f91; text-underline-offset: .2em; overflow-wrap: anywhere; } .ds-nav a:hover { color: #12344f; text-decoration-thickness: .15em; } .ds-nav a:focus-visible { outline: 3px solid #064f91; outline-offset: 4px; } @media (max-width: 420px) { .ds-nav { font-size: 1rem; } }"
+    },
+    {
+      "name": "Draft warning",
+      "kind": "custom",
+      "refersTo": "draft-warning",
+      "description": "Solid-bordered draft status shown near the page title.",
+      "html": "<div class=\"ds-status\"><strong>Draft for KKB review — not approved for publication.</strong> This notice covers controlled testing within approved test projects.</div>",
+      "css": ".ds-status { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.0625rem; line-height: 1.7; padding: 1rem; border: 1px solid #927119; background: #fff8dd; color: #43320b; margin-block: 1.5rem; } @media (max-width: 420px) { .ds-status { font-size: 1rem; } }"
+    },
+    {
+      "name": "Review note",
+      "kind": "custom",
+      "refersTo": "review-note",
+      "description": "Dashed-bordered paragraph for an open review point.",
+      "html": "<p class=\"ds-review\"><strong>Review required:</strong> Verify that account permissions and location controls enforce this policy. This draft does not confirm that those controls are installed.</p>",
+      "css": ".ds-review { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1rem; line-height: 1.7; padding: .75rem 1rem; border: 1px dashed #927119; background: #fff8dd; color: #43320b; margin: 0 0 1rem; }"
+    },
+    {
+      "name": "Skip link",
+      "kind": "custom",
+      "description": "Keyboard link that appears when focused.",
+      "html": "<a class=\"ds-skip\" href=\"#main\">Skip to content</a>",
+      "css": ".ds-skip { position: absolute; left: 1rem; top: -10rem; padding: .5rem 1rem; background: white; color: #064f91; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 1.0625rem; line-height: 1.7; text-underline-offset: .2em; overflow-wrap: anywhere; } .ds-skip:hover { color: #12344f; text-decoration-thickness: .15em; } .ds-skip:focus { top: .5rem; } .ds-skip:focus-visible { outline: 3px solid #064f91; outline-offset: 4px; } @media (max-width: 420px) { .ds-skip { font-size: 1rem; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Plain reading page",
+    "overview": "The user selected a simple text-only page. The page uses one reading column, dark system text, a white background and blue underlined links. It has no images or motion.\n\nThis record describes the built pages in `index.html`, `data-deletion/index.html` and `styles.css`. It does not give legal approval. The draft warning and open review notes remain part of the page.",
+    "keyCharacteristics": ["One reading column.", "System text and underlined links.", "Clear draft warnings and review notes.", "No images or motion."],
+    "rules": [],
+    "dos": ["Do keep the single reading column and system font.", "Do keep links underlined and keyboard focus visible.", "Do show the draft warning and open review notes while checks remain open.", "Do use the existing shared styles on both pages."],
+    "donts": ["Don't add images, motion or a new visual style to this text-only brief.", "Don't add buttons, forms or cards that the pages do not use.", "Don't present this design record as legal approval or permission to publish."]
+  }
+}

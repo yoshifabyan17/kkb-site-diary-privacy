@@ -1,3 +1,4 @@
 .DS_Store
-.impeccable/
+.impeccable/*
+!.impeccable/design.json
 screenshots/
