@@ -12,11 +12,12 @@ for (const page of pages) {
   assert.equal((html.match(/<h1>/g) ?? []).length, 1);
   assert.match(html, /<main id="main">/);
   assert.match(html, /Skip to content/);
-  assert.match(html, /not approved for publication/);
+  assert.match(html, /Sample-only test/);
+  assert.doesNotMatch(html, /Review required|Draft for|draft privacy|not approved for publication|class="review"/i);
   assert.match(html, /yash\.bhanot@kkbgroup\.co\.uk/);
   assert.match(html, /one calendar month/);
   assert.match(html, /Automatic deletion is not enabled/);
-  assert.doesNotMatch(html, /<script\b|<iframe\b|<form\b|<img\b|https?:\/\/[^"\s]*supabase|EA[A-Za-z0-9]{40}/i);
+  assert.doesNotMatch(html, /<script\b|<iframe\b|<form\b|<img\b|https?:\/\/[^"\s]*\.supabase\.co|EA[A-Za-z0-9]{40}/i);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
   assert.equal(ids.length, new Set(ids).size, `${page}: duplicate IDs`);
   for (const [, href] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
@@ -27,9 +28,9 @@ for (const page of pages) {
     assert.ok(existsSync(target), `${page}: broken local link ${href}`);
     if (anchor) assert.ok(readFileSync(target, 'utf8').includes(`id="${anchor}"`), `${page}: missing anchor ${href}`);
   }
-  console.log(`PASS ${page}: structure, draft safeguards, content, no active code, local links`);
+  console.log(`PASS ${page}: structure, sample-only scope, no review placeholders, no active code, local links`);
 }
 const notice = readFileSync(resolve(root, 'index.html'), 'utf8');
-assert.equal((notice.match(/class="review"/g) ?? []).length, 3);
 for (const text of ['test projects', 'legitimate interests', '12 months from receipt', 'AI processing is not enabled', 'London']) assert.ok(notice.includes(text));
-console.log('PASS notice: project scope, lawful basis, retention, AI limit, region and three review gates');
+for (const text of ['one approved test sender', 'personal sign-in account', 'does not have a technical control', 'GitHub receives', 'IP address', 'UK transfer terms', 'no project-backup feature enabled']) assert.ok(notice.includes(text), `missing actual-test disclosure: ${text}`);
+console.log('PASS notice: actual test access, provider transfers, host logs, retention and AI limit');

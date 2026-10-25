@@ -2,6 +2,10 @@
 
 <!-- impeccable:product-schema 1 -->
 
+## Current publication scope — 25 October 2026
+
+Yoshi authorised publication of the existing privacy pages. The current pages describe the sample-only test, actual temporary access, provider processing and host request logs. This supersedes the draft-only publication restrictions below, which record the original preparation stage. It does not approve the Meta app or live site collection. Do not add senders, AI, automatic deletion or paid services.
+
 ## Platform
 
 web

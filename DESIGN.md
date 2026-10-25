@@ -54,6 +54,10 @@ components:
 
 # Design System: KKB Site Diary privacy pages
 
+## Publication update — 25 October 2026
+
+The existing layout is unchanged. The current pages replace draft review boxes with accurate sample-only test disclosures and add the host's request-logging information. Yoshi authorised publication. Historical draft design notes below and in `.impeccable/design.json` describe the 23 October private preparation, not the current release state. No design record is legal sign-off or permission for live site collection.
+
 ## Overview
 
 **Creative North Star: "Plain reading page"**
